@@ -23,14 +23,12 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public ProductDTO addProduct(Long categoryId, Product product) {
-        Category category = categoryRepository.findById(categoryId).
-                orElseThrow(
-                        ()-> new ResourceNotFoundException("Category","categoryId",categoryId)
-                );
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(()-> new ResourceNotFoundException("Category","categoryId",categoryId));
         product.setImage("Default.png");
         product.setCategory(category);
         double specialPrice = product.getPrice()-
-                ((product.getDiscount() * 0.01) * product.getDiscount());
+                ((product.getDiscount() * 0.01) * product.getPrice());
         product.setSpecialPrice(specialPrice);
         Product savedProduct = productRepository.save(product);
         return modelMapper.map(savedProduct,ProductDTO.class);
