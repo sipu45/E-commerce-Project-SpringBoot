@@ -1,4 +1,4 @@
-package com.EcommerceProject.Security.jwt.Services;
+package com.EcommerceProject.Security.Services;
 
 import com.EcommerceProject.Model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,9 +36,10 @@ public class UserDetailsImpl implements UserDetails {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.authorities = this.authorities;
+        this.authorities = authorities;
     }
 
+    // static build method for converting our Custom User object into Custom UserDetailsImpl
     public static UserDetailsImpl build(User user){
         List<GrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getRoleName().name()))
