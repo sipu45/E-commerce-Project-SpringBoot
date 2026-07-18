@@ -66,6 +66,7 @@ public class AuthController {
 
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
 
+
         String jwtToken = jwtUtils.generateTokenFromUsername(userDetails);
 
         List<String> roles = userDetails.getAuthorities().stream()
@@ -73,7 +74,7 @@ public class AuthController {
                 .collect(Collectors.toList());
 
         UserInfoResponse response = new UserInfoResponse(userDetails.getId(),
-                userDetails.getUsername(), roles, jwtToken);
+                userDetails.getUsername(), roles,userDetails.getEmail(), jwtToken);
 
         return ResponseEntity.ok(response);
     }
@@ -103,7 +104,7 @@ public class AuthController {
 
         Set<String> strRole = signupRequest.getRole();
         Set<Role> roles = new HashSet<>();
-        if (strRole != null){
+        if (strRole == null){
            Role userRole = roleRepository.findByRoleName(AppRole.ROLE_USER)
                    .orElseThrow(()-> new RuntimeException("Role is not found"));
            roles.add(userRole);

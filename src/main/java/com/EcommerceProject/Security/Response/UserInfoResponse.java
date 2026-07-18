@@ -9,7 +9,7 @@ public class UserInfoResponse {
     private String email;
     private List<String> roles;
 
-    public UserInfoResponse(Long id, String username, List<String> roles, String email) {
+    public UserInfoResponse(Long id, String username, List<String> roles, String email,String jwtToken) {
         this.id = id;
         this.username = username;
         this.roles = roles;
@@ -23,7 +23,8 @@ public class UserInfoResponse {
         this.roles = roles;
     }
 
-    public Long getId() {
+    public Long getId()
+    {
         return id;
     }
 
