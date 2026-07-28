@@ -46,12 +46,11 @@ public class CartServiceImpl implements CartService {
                 .orElseThrow(() -> new ResourceNotFoundException("Product","productId",productId));
 
         // Perform Validation
-
         CartItem cartItem = cartItemRepository.
                 findCartIemByProductIdAndCartId(cart.getCartId(), productId);
 
         if (cartItem != null) {
-            throw new APIException("Product "+ product.getProductName()+"already exists in Cart");
+            throw new APIException("Product "+ product.getProductName()+" already exists in Cart");
         }
 
        if (product.getQuantity() == 0){
