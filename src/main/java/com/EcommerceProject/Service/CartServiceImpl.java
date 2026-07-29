@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
@@ -89,6 +90,43 @@ public class CartServiceImpl implements CartService {
         cartDTO.setProducts(productStream.toList());
 
         // Return updated Cart
+        return cartDTO;
+    }
+
+    @Override
+    public List<CartDTO> getAllCarts() {
+        List<Cart> carts = cartRepository.findAll();
+        if (carts.isEmpty()) {
+           throw new APIException("No carts exist");
+        }
+
+        List<CartDTO> cartDTOS = carts.stream()
+                .map(cart -> {
+                    CartDTO cartDTO = modelMapper.map(cart,CartDTO.class);
+                    List<ProductDTO> products = cart.getCartItems().stream()
+                            .map(p -> modelMapper.map(p.getProduct(),ProductDTO.class))
+                            .collect(Collectors.toList());
+                    cartDTO.setProducts(products);
+                    return cartDTO;
+                }).collect(Collectors.toList());
+
+
+        return cartDTOS;
+    }
+
+    @Override
+    public CartDTO getCart(String emailId, Long cartId) {
+        Cart cart = cartRepository.findCartByEmailAndCartId(emailId,cartId);
+        if (cart == null) {
+            throw new ResourceNotFoundException("Cart","cartId",cartId);
+        }
+        CartDTO cartDTO = modelMapper.map(cart,CartDTO.class);
+        cart.getCartItems()
+                .forEach(c -> c.getProduct().setQuantity(c.getQuantity()));
+        List<ProductDTO> products = cart.getCartItems().stream()
+                .map(p -> modelMapper.map(p.getProduct(),ProductDTO.class))
+                .toList();
+        cartDTO.setProducts(products);
         return cartDTO;
     }
 
