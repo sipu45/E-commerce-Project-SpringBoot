@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-import org.springframework.data.repository.cdi.Eager;
+
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -74,7 +74,8 @@ public class User {
     @OneToMany(mappedBy = "user",
                cascade = {CascadeType.PERSIST,CascadeType.MERGE},
                orphanRemoval = true)
-    private Set<Product> products ;
+    private Set<Product> products ; // Users can also be a seller
+
 
 
 
