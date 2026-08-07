@@ -37,6 +37,7 @@ public class SwaggerConfig {
                                 .email("sipupadhiari6146@gmail.com")
                                 .url("https://github.com/sipu45"))
                 )
+
                 .externalDocs(new ExternalDocumentation()
                         .description("Project Documentation")
                         .url("https://emabarkx.com"))
