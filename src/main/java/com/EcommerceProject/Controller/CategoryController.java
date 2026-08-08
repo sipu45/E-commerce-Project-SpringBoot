@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.*;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
-    // your choice to use constructor injection or field injection
+
+//     your choice to use constructor injection or field injection
 //      public CategoryController(CategoryService categoryService) {
 //        this.categoryService = categoryService;
 //    }
@@ -51,7 +52,8 @@ public class CategoryController {
     }
 
     @PutMapping("/admin/categories/{categoryId}")
-    public ResponseEntity<CategoryDTO> updateCategory(@Valid @RequestBody CategoryDTO categoryDTO,@PathVariable Long categoryId){
+    public ResponseEntity<CategoryDTO> updateCategory(@Valid @RequestBody CategoryDTO categoryDTO,
+                                                      @PathVariable Long categoryId){
             CategoryDTO savedCategoryDTO = categoryService.updateCategory(categoryDTO,categoryId);
             return new ResponseEntity<>(savedCategoryDTO,HttpStatus.OK);
 
