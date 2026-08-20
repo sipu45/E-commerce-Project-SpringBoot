@@ -78,6 +78,7 @@ public class AddressController {
 //**Example in a Spring Boot app:**
 //
 //```java
+
 /// / Entity (maps to DB table)
 //@Entity
 //public class User {
