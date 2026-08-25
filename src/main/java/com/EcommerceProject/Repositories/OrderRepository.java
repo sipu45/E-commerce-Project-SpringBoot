@@ -17,7 +17,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 //Instead of writing SQL or JPA/Hibernate queries by hand,
 // you just declare an interface, and Spring Data JPA generates the implementation for you at runtime.
 //
-//```java
+//java
 //public interface UserRepository extends JpaRepository<User, Long> {
 //}
 //```
