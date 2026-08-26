@@ -46,6 +46,8 @@ public class Address {
     private String pincode;
 
 
+
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
