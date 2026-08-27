@@ -49,6 +49,7 @@ public class CategoryController {
         CategoryDTO savedCategoryDTO = categoryService.deleteCategory(categoryId);
            return new ResponseEntity<>(savedCategoryDTO, HttpStatus.OK);
 
+
     }
 
     @PutMapping("/admin/categories/{categoryId}")
