@@ -64,7 +64,7 @@ public class AddressController {
 }
 
 
-//**DTO** stands for **Data Transfer Object**.
+//DTO stands for **Data Transfer Object**.
 // It's a design pattern used to carry data between different layers or components of an application —
 // most commonly between the backend and frontend, or between the service layer and the controller layer in a Java/Spring app.
 //
