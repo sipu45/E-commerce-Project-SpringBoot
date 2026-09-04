@@ -104,8 +104,6 @@ public class AddressController {
 //        this.email = user.getEmail();
 //    }
 //}
-//```
-//
 //Then in your controller/service, you convert the entity to a DTO before returning it:
 //
 //```java
