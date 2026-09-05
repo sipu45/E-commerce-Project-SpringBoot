@@ -106,7 +106,6 @@ public class AddressController {
 //}
 //Then in your controller/service, you convert the entity to a DTO before returning it:
 //
-//```java
 //@GetMapping("/users/{id}")
 //public UserDTO getUser(@PathVariable Long id) {
 //    User user = userRepository.findById(id).orElseThrow();
