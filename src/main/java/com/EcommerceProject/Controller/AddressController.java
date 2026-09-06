@@ -26,7 +26,6 @@ public class AddressController {
         User user = authUtil.loggedInUser();
         AddressDTO savedAddressDTO = addressService.createAddress(addressDTO, user);
         return new ResponseEntity<>(savedAddressDTO, HttpStatus.CREATED);
-
     }
 
     @GetMapping("/addresses")
