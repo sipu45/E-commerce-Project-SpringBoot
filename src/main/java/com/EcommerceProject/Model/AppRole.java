@@ -69,9 +69,8 @@ public enum AppRole {
 //    }
 //}
 
-
 //What each one is doing, in plain terms:
-//
+
 //.name() — just gives you back the constant's name as plain text. Useful when you need to display or log it as a String.
 //.ordinal() — tells you where it sits in the list, counting from 0. MONDAY is 0th, TUESDAY is 1st, and so on.
 // Rarely used directly in real code (fragile if you reorder the enum), but good to know it exists.
