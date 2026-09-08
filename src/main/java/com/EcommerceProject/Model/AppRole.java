@@ -23,7 +23,6 @@ public enum AppRole {
 //}
 
 //Why use enums instead of plain constants (like int or String)?
-//
 //Type safety — a variable of type Day can only hold one of the defined values.
 // You can't accidentally assign Day today = "Blah"; or an invalid int like today = 8.
 //Readability — OrderStatus.SHIPPED is far clearer than a magic number like status = 2.
