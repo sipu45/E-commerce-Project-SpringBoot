@@ -171,4 +171,8 @@ public class MyGlobalExceptionHandler {
 //
 //## Where this fits your projects
 //
-//In your EcommerceProject, you'd use this pattern for things like: throwing `ResourceNotFoundException` when a product/order ID doesn't exist, catching validation errors on signup/checkout forms, and handling JWT-related auth exceptions from Spring Security — all funneling through one `GlobalExceptionHandler` instead of scattering try-catch blocks across every controller method. It's also a strong thing to mention in interviews since it shows you think about clean API design, not just "making it work."
+//In your EcommerceProject, you'd use this pattern for things like: throwing `ResourceNotFoundException`
+// when a product/order ID doesn't exist, catching validation errors on signup/checkout forms,
+//and handling JWT-related auth exceptions from Spring Security
+// — all funneling through one `GlobalExceptionHandler` instead of scattering try-catch blocks across every controller method.
+// It's also a strong thing to mention in interviews since it shows you think about clean API design, not just "making it work."
