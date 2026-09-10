@@ -78,7 +78,7 @@ public class AddressController {
 //
 //```java
 
-/// / Entity (maps to DB table)
+// Entity (maps to DB table)
 //@Entity
 //public class User {
 //    @Id
@@ -89,8 +89,8 @@ public class AddressController {
 //    @OneToMany(mappedBy = "user")
 //    private List<Order> orders;
 //}
-//
-//// DTO (what you actually send to the client)
+
+// DTO (what you actually send to the client)
 //public class UserDTO {
 //    private Long id;
 //    private String name;
@@ -110,8 +110,11 @@ public class AddressController {
 //    User user = userRepository.findById(id).orElseThrow();
 //    return new UserDTO(user); // only exposes safe fields
 //}
-//```
+
 //
-//You'll often see this paired with a **mapper** (manual, or using a library like **MapStruct**) to handle entity ↔ DTO conversion cleanly, especially as your project grows.
+//You'll often see this paired with a mapper (manual, or using a library like **MapStruct**)
+// to handle entity ↔ DTO conversion cleanly, especially as your project grows.
 //
-//If you're working on this for a specific project (like your e-commerce app), I can show how to structure DTOs for request vs. response (e.g., `CreateOrderRequestDTO` vs `OrderResponseDTO`) — that's a common real-world pattern.
+//If you're working on this for a specific project (like your e-commerce app),
+// I can show how to structure DTOs for request vs. response (e.g., `CreateOrderRequestDTO` vs `OrderResponseDTO`)
+// — that's a common real-world pattern.
