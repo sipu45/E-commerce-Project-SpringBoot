@@ -252,6 +252,5 @@ public class CartServiceImpl implements CartService {
         Cart newCart = cartRepository.save(cart);
         return newCart;
 
-
     }
 }
