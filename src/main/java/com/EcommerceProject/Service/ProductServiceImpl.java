@@ -49,9 +49,9 @@ public class ProductServiceImpl implements ProductService{
 
     @Value("${project.image}")
     private String path;
-
-    @Value("${image.base.url}")
-    private String imageBaseUrl;
+//
+//    @Value("${image.base.url}")
+//    private String imageBaseUrl;
 
 
     @Override
@@ -97,13 +97,20 @@ public class ProductServiceImpl implements ProductService{
 
        List<Product> products = pageProducts.getContent();
 
-       List<ProductDTO> productDTOS = products.stream()
-               .map(product -> {
-                  ProductDTO productDTO = modelMapper.map(product,ProductDTO.class);
-                  productDTO.setImage(constructImageUrl(product.getImage()));
-                  return productDTO;
-               })
-               .toList();
+//       List<ProductDTO> productDTOS = products.stream()
+//               .map(product -> {
+//                  ProductDTO productDTO = modelMapper.map(product,ProductDTO.class);
+//                  productDTO.setImage(constructImageUrl(product.getImage()));
+//                  return productDTO;
+//               })
+//               .toList();
+
+
+        List<ProductDTO> productDTOS = products.stream()
+                .map(product -> modelMapper.map(product,ProductDTO.class))
+                .toList();
+
+
        if(products.isEmpty()){
            throw new APIException("No Products Exists!!");
        }
@@ -118,9 +125,9 @@ public class ProductServiceImpl implements ProductService{
        return productResponse;
     }
 
-    private String constructImageUrl(String imageName){
-        return imageBaseUrl.endsWith("/") ? imageBaseUrl + imageName : imageBaseUrl  +"/";
-    }
+//    private String constructImageUrl(String imageName){
+//        return imageBaseUrl.endsWith("/") ? imageBaseUrl + imageName : imageBaseUrl  +"/";
+//    }
 
 
     @Override

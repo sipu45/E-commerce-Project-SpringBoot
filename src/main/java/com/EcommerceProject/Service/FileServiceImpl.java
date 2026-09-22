@@ -14,7 +14,7 @@ public class FileServiceImpl implements FileService{
 
     @Override
     public String uploadImage(String path, MultipartFile file) throws IOException {
-        // File names od current / original file
+        // File names old current / original file
         String originalFileName = file.getOriginalFilename();
 
         // Generate a unique file name
